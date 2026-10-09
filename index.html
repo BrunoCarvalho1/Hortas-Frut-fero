@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173d2d">
+  <meta name="description" content="Um guia prático para cultivar árvores de fruto em vasos, mesmo em espaços pequenos.">
+  <title>Árvores de Fruto em Vasos | Guia Prático</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #173d2d;
+      --forest-deep: #102d22;
+      --leaf: #2f7952;
+      --leaf-light: #e6f0e3;
+      --cream: #f8f7f1;
+      --paper: #ffffff;
+      --ink: #172821;
+      --muted: #65756b;
+      --line: #e0e7de;
+      --gold: #ffc20e;
+      --gold-light: #fff4c8;
+      --shadow: 0 24px 70px rgba(18, 54, 35, .12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font: 400 16px/1.6 'DM Sans', Arial, sans-serif; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button { font: inherit; }
+    ::selection { background: var(--gold); color: var(--forest-deep); }
+    .container { width: min(calc(100% - 48px), 1160px); margin-inline: auto; }
+    section[id] { scroll-margin-top: 90px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px; color: var(--leaf); font: 800 12px/1.3 Manrope, sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow::before { content: ''; width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: var(--gold); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: Manrope, Arial, sans-serif; letter-spacing: -.045em; }
+    h2 { font-size: clamp(32px, 4vw, 50px); line-height: 1.16; }
+    .section-intro { max-width: 650px; margin-bottom: 40px; }
+    .section-intro p:last-child { margin-bottom: 0; color: var(--muted); font-size: 18px; }
+
+    .site-header { position: sticky; z-index: 20; top: 0; border-bottom: 1px solid rgba(23, 61, 45, .08); background: rgba(248, 247, 241, .96); backdrop-filter: blur(16px); }
+    .header-inner { display: flex; min-height: 78px; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--forest); font: 800 16px/1.16 Manrope, sans-serif; letter-spacing: -.04em; text-decoration: none; }
+    .brand-mark { display: grid; width: 39px; height: 39px; flex: 0 0 39px; place-items: center; border-radius: 12px; background: var(--forest); color: var(--gold); }
+    .brand-mark svg { width: 25px; height: 25px; }
+    .header-links { display: flex; align-items: center; gap: 34px; margin-left: auto; }
+    .header-links a { color: #405448; font-size: 14px; font-weight: 700; text-decoration: none; transition: color .2s; }
+    .header-links a:hover, .header-links a:focus-visible { color: var(--leaf); }
+    .header-cta { display: inline-flex; min-height: 42px; align-items: center; padding: 0 18px; border-radius: 9px; background: var(--forest); color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s; }
+    .header-cta:hover { transform: translateY(-2px); background: var(--leaf); }
+
+    .hero { position: relative; overflow: hidden; padding: 82px 0 92px; background: radial-gradient(circle at 84% 20%, #e7efd9 0, transparent 34%), var(--cream); }
+    .hero::after { position: absolute; right: -100px; bottom: -170px; width: 420px; height: 420px; border: 1px solid rgba(47, 121, 82, .12); border-radius: 50%; content: ''; pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr); align-items: center; gap: clamp(36px, 6vw, 90px); }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero h1 { max-width: 630px; margin-bottom: 22px; color: var(--forest-deep); font-size: clamp(42px, 4.6vw, 64px); font-weight: 800; line-height: 1.08; }
+    .hero h1 em { color: var(--leaf); font-style: normal; }
+    .hero-lead { max-width: 550px; margin-bottom: 28px; color: #53665a; font-size: 19px; line-height: 1.65; }
+    .hero-points { display: flex; flex-wrap: wrap; gap: 9px; margin: 0 0 28px; padding: 0; list-style: none; }
+    .hero-points li { padding: 8px 12px; border: 1px solid #dbe6d8; border-radius: 99px; background: #fff; color: var(--forest); font-size: 13px; font-weight: 700; }
+    .hero-points li::before { margin-right: 6px; color: var(--leaf); content: '✓'; }
+    .button { display: inline-flex; min-height: 59px; align-items: center; justify-content: center; gap: 14px; padding: 14px 24px; border: 0; border-radius: 12px; background: var(--gold); box-shadow: 0 7px 0 #dea805; color: var(--forest-deep); font: 800 15px/1.2 Manrope, sans-serif; text-align: center; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
+    .button:hover { transform: translateY(-3px); box-shadow: 0 10px 0 #dea805; background: #ffd13e; }
+    .button:active { transform: translateY(5px); box-shadow: 0 2px 0 #dea805; }
+    .button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--leaf); outline-offset: 3px; }
+    .button svg { width: 18px; height: 18px; flex: 0 0 18px; }
+    .hero-note { margin: 17px 0 0; color: var(--muted); font-size: 13px; }
+    .hero-note strong { color: var(--forest); }
+
+    .hero-visual { position: relative; display: grid; min-height: 570px; place-items: center; }
+    .visual-halo { position: absolute; width: min(100%, 480px); aspect-ratio: 1; border-radius: 50%; background: #e0ead9; }
+    .visual-halo::before, .visual-halo::after { position: absolute; inset: 25px; border: 1px solid rgba(23, 61, 45, .13); border-radius: 50%; content: ''; }
+    .visual-halo::after { inset: 60px; }
+    .book { position: relative; z-index: 1; display: flex; width: 335px; min-height: 476px; flex-direction: column; overflow: hidden; padding: 30px 27px 20px; border: 8px solid #f7f3df; border-radius: 13px; background: var(--forest); box-shadow: 13px 18px 0 #d8d5c7, 30px 42px 50px rgba(11, 40, 25, .24); color: #fff; transform: rotate(7deg); }
+    .book::after { position: absolute; inset: 0; border: 1px solid rgba(255, 255, 255, .12); border-radius: 5px; content: ''; pointer-events: none; }
+    .book-kicker { color: var(--gold); font: 800 10px/1.3 Manrope, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
+    .book-title { max-width: 250px; margin: 16px 0 0; font: 800 31px/1.13 Manrope, sans-serif; letter-spacing: -.055em; }
+    .book-subtitle { margin-top: 12px; color: #d0e3d2; font-size: 12px; }
+    .book-art { width: 100%; height: 220px; margin: 11px auto 0; }
+    .book-footer { margin-top: auto; padding-top: 9px; border-top: 1px solid rgba(255, 255, 255, .26); color: #d9ead7; font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+    .float-card { position: absolute; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 13px 16px; border: 1px solid #e8ede3; border-radius: 14px; background: #fff; box-shadow: var(--shadow); color: var(--forest); font-size: 13px; font-weight: 800; }
+    .float-card span { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 8px; background: var(--leaf-light); color: var(--leaf); font-size: 17px; }
+    .float-card--top { top: 70px; right: -10px; transform: rotate(5deg); }
+    .float-card--bottom { bottom: 65px; left: -5px; transform: rotate(-5deg); }
+
+    .proof-bar { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #fff; }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .proof-item { display: flex; min-height: 108px; align-items: center; gap: 15px; padding: 18px 28px; }
+    .proof-item + .proof-item { border-left: 1px solid var(--line); }
+    .proof-icon { display: grid; width: 43px; height: 43px; flex: 0 0 43px; place-items: center; border-radius: 12px; background: var(--leaf-light); color: var(--leaf); font: 800 22px/1 Manrope, sans-serif; }
+    .proof-item strong { display: block; color: var(--forest); font: 800 15px/1.35 Manrope, sans-serif; }
+    .proof-item small { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; }
+
+    .benefits { padding: 108px 0; }
+    .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .benefit-card { min-height: 250px; padding: 29px; border: 1px solid var(--line); border-radius: 19px; background: var(--paper); transition: transform .2s, box-shadow .2s; }
+    .benefit-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .benefit-icon { display: grid; width: 48px; height: 48px; margin-bottom: 23px; place-items: center; border-radius: 14px; background: var(--leaf-light); color: var(--leaf); font-size: 24px; }
+    .benefit-card h3 { margin-bottom: 10px; color: var(--forest); font-size: 20px; line-height: 1.3; }
+    .benefit-card p { margin-bottom: 0; color: var(--muted); font-size: 15px; }
+
+    .curriculum { padding: 105px 0; background: #fff; }
+    .curriculum-grid { display: grid; grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); gap: 90px; align-items: start; }
+    .curriculum-copy { position: sticky; top: 116px; }
+    .curriculum-copy h2 { margin-bottom: 22px; }
+    .curriculum-copy > p:not(.eyebrow) { color: var(--muted); font-size: 18px; }
+    .curriculum-list { display: grid; gap: 12px; }
+    .curriculum-item { display: grid; grid-template-columns: 50px 1fr; gap: 15px; padding: 21px 23px; border: 1px solid var(--line); border-radius: 15px; background: #fbfcf9; }
+    .curriculum-item span { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 11px; background: var(--forest); color: var(--gold); font: 800 14px/1 Manrope, sans-serif; }
+    .curriculum-item h3 { margin: 0 0 5px; color: var(--forest); font-size: 17px; line-height: 1.3; }
+    .curriculum-item p { margin: 0; color: var(--muted); font-size: 14px; }
+    .curriculum-more { margin: 18px 0 0; color: var(--leaf); font-size: 14px; font-weight: 700; }
+
+    .how { padding: 110px 0; background: var(--leaf-light); }
+    .how .section-intro { margin-inline: auto; text-align: center; }
+    .step-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .step { position: relative; padding: 30px; border: 1px solid #d0dfcf; border-radius: 19px; background: rgba(255, 255, 255, .78); }
+    .step-number { color: var(--leaf); font: 800 13px/1 Manrope, sans-serif; letter-spacing: .1em; }
+    .step h3 { margin: 29px 0 10px; color: var(--forest); font-size: 21px; }
+    .step p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .offer-section { padding: 112px 0; background: var(--forest-deep); color: #fff; }
+    .offer-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: 75px; }
+    .offer-copy .eyebrow { color: var(--gold); }
+    .offer-copy h2 { max-width: 550px; margin-bottom: 20px; color: #fff; }
+    .offer-copy > p:not(.eyebrow) { max-width: 530px; color: #c9dccf; font-size: 18px; }
+    .offer-includes { display: grid; gap: 15px; margin: 28px 0 0; padding: 0; list-style: none; }
+    .offer-includes li { display: flex; align-items: flex-start; gap: 11px; font-weight: 700; }
+    .offer-includes li::before { display: grid; width: 23px; height: 23px; flex: 0 0 23px; place-items: center; border-radius: 50%; background: var(--gold); color: var(--forest); font: 800 15px/1 Arial, sans-serif; content: '✓'; }
+    .price-card { position: relative; padding: 38px; border: 1px solid rgba(255, 255, 255, .16); border-radius: 24px; background: #fff; box-shadow: 0 26px 60px rgba(0, 0, 0, .22); color: var(--ink); }
+    .price-tag { display: inline-block; padding: 7px 12px; border-radius: 99px; background: var(--gold-light); color: #805d00; font: 800 11px/1.3 Manrope, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    .price-card h3 { margin: 19px 0 5px; color: var(--forest); font-size: 28px; line-height: 1.2; }
+    .price-card > p { color: var(--muted); }
+    .old-price { margin: 21px 0 0; font-size: 17px; }
+    .old-price s { color: #8e9890; }
+    .new-price { display: flex; align-items: baseline; gap: 6px; margin: -5px 0 20px; color: var(--forest); font: 800 77px/1 Manrope, sans-serif; letter-spacing: -.07em; }
+    .new-price small { align-self: flex-start; padding-top: 12px; font-size: 25px; letter-spacing: -.04em; }
+    .price-card .button { width: 100%; }
+    .price-note { margin: 17px 0 0; color: var(--muted); font-size: 13px; text-align: center; }
+    .guarantee { display: flex; align-items: center; gap: 18px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+    .guarantee img { width: 88px; height: 88px; flex: 0 0 88px; object-fit: contain; }
+    .guarantee strong { display: block; color: var(--forest); font: 800 15px/1.35 Manrope, sans-serif; }
+    .guarantee span { display: block; margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+    .faq-section { padding: 108px 0; background: var(--cream); }
+    .faq-grid { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 85px; }
+    .faq-grid h2 { margin-bottom: 16px; }
+    .faq-grid > div:first-child > p:last-child { color: var(--muted); }
+    .faq-items { border-top: 1px solid var(--line); }
+    .faq-items details { border-bottom: 1px solid var(--line); }
+    .faq-items summary { position: relative; padding: 23px 35px 23px 0; color: var(--forest); font: 800 16px/1.45 Manrope, sans-serif; cursor: pointer; list-style: none; }
+    .faq-items summary::-webkit-details-marker { display: none; }
+    .faq-items summary::after { position: absolute; top: 18px; right: 0; color: var(--leaf); font: 400 28px/1 Arial, sans-serif; content: '+'; }
+    .faq-items details[open] summary::after { content: '−'; }
+    .faq-items details p { max-width: 600px; padding: 0 30px 22px 0; margin: 0; color: var(--muted); font-size: 15px; }
+
+    .final-cta { padding: 75px 0; background: var(--gold); }
+    .final-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .final-cta h2 { max-width: 720px; margin: 0; color: var(--forest-deep); font-size: clamp(27px, 3vw, 40px); }
+    .final-cta .button { flex: 0 0 auto; background: var(--forest); box-shadow: 0 7px 0 #0d291e; color: #fff; }
+    .final-cta .button:hover { background: var(--leaf); box-shadow: 0 10px 0 #0d291e; }
+    .site-footer { padding: 29px 0; background: var(--forest-deep); color: #c8d7cb; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 13px; }
+    .footer-inner .brand { color: #fff; }
+    .footer-inner .brand-mark { border: 1px solid rgba(255, 255, 255, .25); }
+
+    @media (max-width: 1000px) {
+      .header-links { gap: 18px; }
+      .hero-grid, .offer-grid { gap: 35px; }
+      .float-card--top { right: 0; }
+      .curriculum-grid { gap: 45px; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(calc(100% - 36px), 580px); }
+      .header-inner { min-height: 68px; }
+      .header-links { display: none; }
+      .header-cta { padding: 0 12px; font-size: 12px; }
+      .hero { padding: 55px 0 60px; }
+      .hero-grid, .offer-grid, .curriculum-grid, .faq-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: clamp(40px, 9vw, 58px); }
+      .hero-lead { font-size: 17px; }
+      .hero-visual { min-height: 520px; margin-top: 10px; }
+      .float-card--top { top: 50px; }
+      .float-card--bottom { bottom: 45px; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-item { min-height: 85px; padding: 16px 4px; }
+      .proof-item + .proof-item { border-top: 1px solid var(--line); border-left: 0; }
+      .benefits, .curriculum, .how, .offer-section, .faq-section { padding: 76px 0; }
+      .benefit-grid, .step-grid { grid-template-columns: 1fr; }
+      .benefit-card { min-height: 0; }
+      .curriculum-copy { position: static; }
+      .offer-copy h2 { max-width: 520px; }
+      .faq-grid { gap: 28px; }
+      .final-inner { flex-direction: column; align-items: flex-start; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .brand { font-size: 14px; }
+      .brand-mark { width: 35px; height: 35px; flex-basis: 35px; }
+      .header-cta { min-height: 37px; }
+      .hero-visual { min-height: 465px; }
+      .visual-halo { width: 92%; }
+      .book { width: 270px; min-height: 397px; padding: 23px 21px 17px; }
+      .book-title { font-size: 25px; }
+      .book-art { height: 177px; }
+      .float-card { padding: 9px 10px; font-size: 11px; }
+      .float-card--top { top: 25px; right: -6px; }
+      .float-card--bottom { bottom: 10px; left: -3px; }
+      .section-intro { margin-bottom: 29px; }
+      .curriculum-item { grid-template-columns: 40px 1fr; gap: 10px; padding: 17px; }
+      .curriculum-item span { width: 36px; height: 36px; }
+      .price-card { padding: 25px; }
+      .new-price { font-size: 68px; }
+      .guarantee img { width: 72px; height: 72px; flex-basis: 72px; }
+      .final-cta { padding: 56px 0; }
+      .button { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Árvores em Vasos, voltar ao início">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 27V14M16 18C8 18 5 12 6 6c6 0 10 3 10 9M16 17c0-8 4-12 11-12 0 7-4 12-11 12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>Árvores<br>em Vasos</span>
+      </a>
+      <nav class="header-links" aria-label="Navegação principal">
+        <a href="#beneficios">Benefícios</a>
+        <a href="#conteudo">O que vais aprender</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+      <a class="header-cta" href="#oferta">Ver o guia</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Guia prático para começar hoje</p>
+          <h1 id="hero-title">Sua próxima colheita pode começar em <em>um vaso.</em></h1>
+          <p class="hero-lead">Descobre como escolher as espécies, preparar o vaso e cuidar de árvores de fruto, mesmo quando o espaço disponível é pequeno.</p>
+          <ul class="hero-points" aria-label="Destaques do guia">
+            <li>Passo a passo simples</li>
+            <li>Para pequenos espaços</li>
+            <li>Acesso imediato</li>
+          </ul>
+          <a class="button" href="#oferta">Quero conhecer o guia <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="hero-note">Pagamento único de <strong>14,90 €</strong> · acesso vitalício ao guia</p>
+        </div>
+        <div class="hero-visual" aria-label="Ilustração da capa do guia Árvores de Fruto em Vasos">
+          <div class="visual-halo" aria-hidden="true"></div>
+          <div class="book" aria-hidden="true">
+            <span class="book-kicker">Guia completo</span>
+            <span class="book-title">Árvores de fruto em vasos</span>
+            <span class="book-subtitle">Do primeiro vaso aos cuidados para colher.</span>
+            <svg class="book-art" viewBox="0 0 250 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="127" cy="203" rx="70" ry="10" fill="#0c261c" opacity=".5"/>
+              <path d="M102 154h58l-7 50h-44l-7-50Z" fill="#d98a55"/><path d="M103 154h56" stroke="#ffd19c" stroke-width="8" stroke-linecap="round"/>
+              <path d="M130 155c-2-32-7-52-4-77m4 57c-17-19-29-31-46-35m45 16c19-25 38-36 54-42m-57 26c-5-24-17-40-28-49" stroke="#cfab72" stroke-width="5" stroke-linecap="round"/>
+              <g fill="#80b671"><ellipse cx="80" cy="94" rx="11" ry="21" transform="rotate(-60 80 94)"/><ellipse cx="96" cy="69" rx="10" ry="19" transform="rotate(-28 96 69)"/><ellipse cx="114" cy="51" rx="11" ry="20" transform="rotate(-13 114 51)"/><ellipse cx="141" cy="54" rx="11" ry="20" transform="rotate(35 141 54)"/><ellipse cx="166" cy="73" rx="11" ry="20" transform="rotate(57 166 73)"/><ellipse cx="184" cy="94" rx="10" ry="18" transform="rotate(64 184 94)"/><ellipse cx="96" cy="119" rx="10" ry="17" transform="rotate(-75 96 119)"/><ellipse cx="151" cy="111" rx="10" ry="17" transform="rotate(64 151 111)"/><ellipse cx="71" cy="60" rx="9" ry="16" transform="rotate(-43 71 60)"/><ellipse cx="182" cy="53" rx="9" ry="16" transform="rotate(45 182 53)"/></g>
+              <g fill="#ffc20e"><circle cx="73" cy="112" r="12"/><circle cx="111" cy="84" r="11"/><circle cx="160" cy="94" r="12"/><circle cx="193" cy="106" r="11"/><circle cx="139" cy="126" r="10"/></g>
+              <g fill="#f9e3a1"><circle cx="44" cy="126" r="3"/><circle cx="207" cy="42" r="3"/><circle cx="57" cy="42" r="2"/></g>
+            </svg>
+            <span class="book-footer">Cultiva mais perto da natureza</span>
+          </div>
+          <div class="float-card float-card--top" aria-hidden="true"><span>✦</span> Pequenos espaços</div>
+          <div class="float-card float-card--bottom" aria-hidden="true"><span>✓</span> Do vaso à colheita</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-bar" aria-label="Informações rápidas">
+      <div class="container proof-grid">
+        <div class="proof-item"><span class="proof-icon" aria-hidden="true">01</span><div><strong>Começa do zero</strong><small>Orientações em linguagem simples</small></div></div>
+        <div class="proof-item"><span class="proof-icon" aria-hidden="true">13</span><div><strong>Espécies de bónus</strong><small>Ideias de árvores para vasos</small></div></div>
+        <div class="proof-item"><span class="proof-icon" aria-hidden="true">∞</span><div><strong>Acesso vitalício</strong><small>Consulta o material quando precisares</small></div></div>
+      </div>
+    </section>
+
+    <section class="benefits" id="beneficios" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Mais verde no teu dia a dia</p>
+          <h2 id="benefits-title">Não é preciso ter um jardim para começar.</h2>
+          <p>Com o vaso certo e cuidados bem explicados, podes planear o cultivo para a varanda, o terraço ou outro espaço com boa luz.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card"><div class="benefit-icon" aria-hidden="true">◫</div><h3>Aproveita melhor o espaço</h3><p>Aprende a escolher vasos e espécies de acordo com o ambiente disponível.</p></article>
+          <article class="benefit-card"><div class="benefit-icon" aria-hidden="true">✿</div><h3>Cuida com confiança</h3><p>Compreende o solo, a adubação, a rega, a poda e os sinais de que a planta precisa de atenção.</p></article>
+          <article class="benefit-card"><div class="benefit-icon" aria-hidden="true">☀</div><h3>Cultiva ao teu ritmo</h3><p>Tem um guia para consultar sempre que surgir uma dúvida durante o cultivo.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="curriculum" id="conteudo" aria-labelledby="curriculum-title">
+      <div class="container curriculum-grid">
+        <div class="curriculum-copy">
+          <p class="eyebrow">Dentro do guia</p>
+          <h2 id="curriculum-title">Um caminho claro, do plantio aos cuidados diários.</h2>
+          <p>O conteúdo está organizado para avançares sem teres de procurar respostas em vários lugares.</p>
+          <a class="button" href="#oferta">Ver oferta do guia <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div>
+          <div class="curriculum-list">
+            <article class="curriculum-item"><span>01</span><div><h3>Escolha das espécies</h3><p>Que árvores considerar para o cultivo em vasos e como avaliar o espaço disponível.</p></div></article>
+            <article class="curriculum-item"><span>02</span><div><h3>Vaso e preparo do solo</h3><p>Tamanho do recipiente, drenagem e preparo para dar um bom começo à planta.</p></div></article>
+            <article class="curriculum-item"><span>03</span><div><h3>Plantio e primeiros cuidados</h3><p>Os passos iniciais de plantio, rega e adaptação da árvore ao novo vaso.</p></div></article>
+            <article class="curriculum-item"><span>04</span><div><h3>Adubação e proteção</h3><p>Como nutrir a planta e observar possíveis pragas ou sinais de desequilíbrio.</p></div></article>
+            <article class="curriculum-item"><span>05</span><div><h3>Poda, suporte e copa</h3><p>Cuidados para conduzir o crescimento e manter a árvore adequada ao espaço.</p></div></article>
+            <article class="curriculum-item"><span>06</span><div><h3>Problemas comuns</h3><p>O que observar quando o desenvolvimento não segue como esperado.</p></div></article>
+          </div>
+          <p class="curriculum-more">+ Bónus: 13 espécies de árvores de fruto para vasos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Simples de seguir</p>
+          <h2 id="how-title">Aprende, aplica e acompanha a evolução.</h2>
+          <p>Um guia de consulta para transformar vontade de cultivar em próximos passos concretos.</p>
+        </div>
+        <div class="step-grid">
+          <article class="step"><span class="step-number">PASSO 01</span><h3>Planeia o cultivo</h3><p>Observa a luz e o espaço disponível e escolhe a espécie mais adequada à tua rotina.</p></article>
+          <article class="step"><span class="step-number">PASSO 02</span><h3>Prepara e planta</h3><p>Monta o vaso, cuida da drenagem e começa com uma base bem preparada.</p></article>
+          <article class="step"><span class="step-number">PASSO 03</span><h3>Cuida e ajusta</h3><p>Acompanha a rega, a nutrição e a poda de acordo com o desenvolvimento da árvore.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="offer-section" id="oferta" aria-labelledby="offer-title">
+      <div class="container offer-grid">
+        <div class="offer-copy">
+          <p class="eyebrow">Oferta do guia completo</p>
+          <h2 id="offer-title">Começa a cultivar com um plano à mão.</h2>
+          <p>Reúne as orientações essenciais num só lugar e consulta o guia sempre que precisares.</p>
+          <ul class="offer-includes">
+            <li>Guia Árvores de Fruto em Vasos</li>
+            <li>Bónus com 13 espécies para vasos</li>
+            <li>Acesso imediato após a confirmação do pagamento</li>
+            <li>Pagamento único e acesso vitalício</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <span class="price-tag">Condição especial</span>
+          <h3>O teu guia está aqui.</h3>
+          <p>Um investimento simples para dar o primeiro passo.</p>
+          <p class="old-price">Hoje por apenas</p>
+          <div class="new-price"><span>14,90</span><small>€</small></div>
+          <a class="button" href="https://pagamento.payedu.com.br/checkout/v5/F60Zdhcl7VQZGVqtTTkD">Garantir o meu acesso <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="price-note">Pagamento único · acesso enviado por email</p>
+          <div class="guarantee">
+            <img src="garantia-14-dias.png" width="410" height="410" alt="Selo de 14 dias de garantia: 100% dinheiro de volta">
+            <div><strong>Tens 14 dias de garantia.</strong><span>Conhece o guia com a tranquilidade indicada no selo de garantia.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="duvidas" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div><p class="eyebrow">Antes de começar</p><h2 id="faq-title">Perguntas frequentes</h2><p>Respostas rápidas para decidires com clareza.</p></div>
+        <div class="faq-items">
+          <details><summary>Preciso de um jardim para usar o guia?</summary><p>Não. O guia foi pensado para quem deseja cultivar árvores de fruto em vasos, mesmo em espaços pequenos. A escolha da espécie deve considerar as condições de luz e o espaço disponível.</p></details>
+          <details><summary>Quando recebo o acesso?</summary><p>Após a confirmação do pagamento, os dados de acesso são enviados para o email indicado na compra.</p></details>
+          <details><summary>O pagamento é único?</summary><p>Sim. A oferta apresentada é de pagamento único, com acesso vitalício ao guia.</p></details>
+          <details><summary>O que está incluído?</summary><p>O guia Árvores de Fruto em Vasos e o bónus com 13 espécies de árvores de fruto para vasos.</p></details>
+          <details><summary>Como funciona a garantia?</summary><p>O selo desta oferta indica uma garantia de 14 dias com reembolso de 100% do valor. Consulta as condições apresentadas no checkout antes de concluir a compra.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" aria-label="Chamada final">
+      <div class="container final-inner"><h2>O teu espaço pode ter mais verde. Começa com um vaso.</h2><a class="button" href="#oferta">Ver o guia por 14,90 € <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div class="brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 27V14M16 18C8 18 5 12 6 6c6 0 10 3 10 9M16 17c0-8 4-12 11-12 0 7-4 12-11 12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Árvores<br>em Vasos</span></div><span>Um guia prático para cultivar em pequenos espaços.</span></div></footer>
+</body>
+</html>
