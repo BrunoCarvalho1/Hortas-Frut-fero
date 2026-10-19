@@ -66,8 +66,6 @@
     .button { display: inline-flex; min-height: 59px; align-items: center; justify-content: center; gap: 14px; padding: 14px 24px; border: 0; border-radius: 12px; background: var(--gold); box-shadow: 0 7px 0 #dea805; color: var(--forest-deep); font: 800 15px/1.2 Manrope, sans-serif; text-align: center; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
     .button:hover { transform: translateY(-3px); box-shadow: 0 10px 0 #dea805; background: #ffd13e; }
     .button:active { transform: translateY(5px); box-shadow: 0 2px 0 #dea805; }
-    .button:disabled { cursor: not-allowed; transform: none; box-shadow: none; background: #e2e7e2; color: #6c776f; }
-    .button:disabled:hover { transform: none; box-shadow: none; background: #e2e7e2; }
     .button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--leaf); outline-offset: 3px; }
     .button svg { width: 18px; height: 18px; flex: 0 0 18px; }
     .hero-note { margin: 17px 0 0; color: var(--muted); font-size: 13px; }
@@ -359,7 +357,7 @@
           <p>Um investimento simples para dar o primeiro passo.</p>
           <p class="old-price">Hoje por apenas</p>
           <div class="new-price"><span>14,90</span><small>€</small></div>
-          <button class="button" type="button" disabled>Garantir o meu acesso <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <a class="button" href="https://pay.hotmart.com/N108019388P">Garantir o meu acesso <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <p class="price-note">Pagamento único · acesso enviado por email</p>
           <div class="guarantee">
             <img src="garantia-14-dias.png" width="410" height="410" alt="Selo de 14 dias de garantia: 100% dinheiro de volta">
